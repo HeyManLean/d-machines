@@ -1,0 +1,50 @@
+version: '2'
+services:
+    dev1:
+      build: .
+      container_name: dev1
+      restart: always
+      tty: true
+      networks:
+         dev-network:
+          ipv4_address: 172.19.0.101
+    dev2:
+      build: .
+      container_name: dev2
+      restart: always
+      tty: true
+      networks:
+         dev-network:
+          ipv4_address: 172.19.0.102
+    dev3:
+      build: .
+      container_name: dev3
+      restart: always
+      tty: true
+      networks:
+         dev-network:
+          ipv4_address: 172.19.0.103
+    dev4:
+      build: .
+      container_name: dev4
+      restart: always
+      tty: true
+      networks:
+         dev-network:
+          ipv4_address: 172.19.0.104
+    deploy1:
+      build: .
+      container_name: deploy1
+      restart: always
+      tty: true
+      networks:
+         dev-network:
+          ipv4_address: 172.19.0.105
+    
+         
+networks:
+   dev-network:
+      ipam:
+         config:
+         - subnet: 172.19.0.0/16
+           gateway: 172.19.0.1
