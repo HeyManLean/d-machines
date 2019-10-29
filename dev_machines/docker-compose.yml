@@ -32,19 +32,9 @@ services:
       networks:
          dev-network:
           ipv4_address: 172.19.0.104
-    deploy1:
-      build: .
-      container_name: deploy1
-      restart: always
-      tty: true
-      networks:
-         dev-network:
-          ipv4_address: 172.19.0.105
     
          
 networks:
    dev-network:
-      ipam:
-         config:
-         - subnet: 172.19.0.0/16
-           gateway: 172.19.0.1
+      external:
+         name: dev-network
